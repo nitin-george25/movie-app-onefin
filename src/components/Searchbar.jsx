@@ -16,6 +16,8 @@ const Searchbar = ({ onSearch, placeholder, className }) => {
 			.subscribe((val) => {
 				if (val.length > 3) {
 					onSearch(val);
+				} else {
+					onSearch('');
 				}
 			});
 	}, []);
