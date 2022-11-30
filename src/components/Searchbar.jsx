@@ -13,7 +13,11 @@ const Searchbar = ({ onSearch, placeholder, className }) => {
 				map((i) => i.currentTarget.value),
 				debounceTime(250)
 			)
-			.subscribe(onSearch);
+			.subscribe((val) => {
+				if (val.length > 3) {
+					onSearch(val);
+				}
+			});
 	}, []);
 
 	return (
